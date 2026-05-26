@@ -1,0 +1,51 @@
+{
+  "agency": "Mettos",
+  "frequency": "Quinzenal",
+  "last_updated": "2026-05-26",
+  "archived_topics": [
+    {
+      "edition": "14",
+      "date": "2026-05-26",
+      "topics": [
+        "Jornada de Compra B2B 100% Digital & Tours 3D (McKinsey B2B)",
+        "Remoção silenciosa de exclusões de apps móveis nas PMax do Google Ads",
+        "Rollout obrigatório do Consent Mode V2 para remarketing e lances inteligentes",
+        "Feiras de Automação Industrial e Logística Internacional (ABRALOG)",
+        "Benchmarking: Vídeos de Behind-The-Scenes no Meta Ads & OPEX Copy no LinkedIn"
+      ]
+    },
+    {
+      "edition": "13",
+      "date": "2026-05-19",
+      "topics": [
+        "Retrofit de maquinário industrial para eficiência de custos elétricos",
+        "Lead Form Extensions nativos no YouTube Ads B2B para Desktop",
+        "Evasão de cookies e ITP no Safari - Perda de leads de pixels de navegador",
+        "Campanhas sazonais do Dia da Indústria",
+        "Benchmarking: Renders fotorrealistas em alta e copies focadas em NR10, NR12 e NR35"
+      ]
+    },
+    {
+      "edition": "12",
+      "date": "2026-05-12",
+      "topics": [
+        "Descentralização e interiorização de galpões logísticos no Brasil",
+        "Audience Expansion habilitada por padrão em campanhas do LinkedIn Ads",
+        "Tempo de resposta de leads B2B e automação instantânea com RD Station",
+        "Calendário: Dia Nacional do Engenheiro de Produção",
+        "Benchmarking: Carrosséis passo-a-passo e dados puramente numéricos em criativos"
+      ]
+    }
+  ],
+  "monitoring_rules": {
+    "no_repeat_window_days": 60,
+    "strictly_enforced_sources": [
+      "Google Ads Changelog",
+      "Meta Business Newsroom",
+      "Portal da Indústria (CNI)",
+      "LinkedIn Ads Updates",
+      "RD Station Product Blog",
+      "ABIMAQ / ABRALOG setoriais"
+    ]
+  }
+}
