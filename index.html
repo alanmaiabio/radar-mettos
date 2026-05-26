@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radar Mettos | Inteligência Semanal Operacional</title>
+  <!-- SEO & Fonts -->
+  <meta name="description" content="Dashboard e Gerador de Newsletter Semanal para a equipe operacional da Mettos. Inteligência prática para tráfego, CRM e dados.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <div class="logo-text">
+            <h1>Radar Mettos</h1>
+            <span>Operação & Escala</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navegação</div>
+        <button class="nav-btn active" id="btn-dashboard" onclick="switchTab('dashboard')">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Radar Semanal</span>
+        </button>
+        <button class="nav-btn" id="btn-prompt-sandbox" onclick="switchTab('sandbox')">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <span>Prompt Sandbox</span>
+          <span class="badge">Novo</span>
+        </button>
+
+        <div class="nav-section-title">Histórico de Edições</div>
+        <div class="editions-list" id="editions-list">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="nav-section-title">Canais Monitorados</div>
+        <div class="monitored-channels">
+          <div class="channel-tag"><span class="dot green"></span> Google Ads Changelog</div>
+          <div class="channel-tag"><span class="dot green"></span> Meta Status & API</div>
+          <div class="channel-tag"><span class="dot green"></span> Portais Industriais B2B</div>
+          <div class="channel-tag"><span class="dot green"></span> Tech & CRM Trackers</div>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">HO</div>
+          <div class="user-info">
+            <span class="user-name">Head Operacional</span>
+            <span class="user-role">Mettos Agency</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- TOP BAR -->
+      <header class="top-bar">
+        <div class="welcome-msg">
+          <h2 id="current-tab-title">Radar Semanal</h2>
+          <p id="current-tab-subtitle">Monitore tendências, tráfego, CRM e dados com foco em execução.</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-secondary" onclick="openGeneratorModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <span>Simular Varredura IA</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- TAB 1: DASHBOARD -->
+      <div id="tab-dashboard" class="tab-content active">
+        <!-- Dashboard Header Actions -->
+        <div class="edition-header-row">
+          <div class="edition-title-info">
+            <h3 id="newsletter-title">⚡ RADAR METTOS – Edição #14</h3>
+            <span class="edition-date" id="newsletter-date">Período: 19 de Maio a 26 de Maio, 2026</span>
+          </div>
+          <div class="share-actions">
+            <button class="btn btn-sm btn-outline" onclick="copyFormat('slack')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M12 2v20"/><path d="M2 12h20"/></svg>
+              <span>Copiar p/ Slack</span>
+            </button>
+            <button class="btn btn-sm btn-outline" onclick="copyFormat('whatsapp')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>Copiar p/ WhatsApp</span>
+            </button>
+            <button class="btn btn-sm btn-outline" onclick="window.print()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              <span>Imprimir / PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- MAIN GRID: SCANNABLE BLOCKS -->
+        <div class="radar-grid">
+          
+          <!-- SEÇÃO 1: MERCADO & INDÚSTRIA -->
+          <section class="radar-card" id="card-mercado">
+            <div class="card-badge color-industry">🏭 1. Mercado & Indústria</div>
+            <div class="card-body">
+              <h4 class="card-main-title" id="sec-1-title">Aceleração B2B e Feiras Virtuais com IoT</h4>
+              <div class="scannable-item">
+                <span class="label">Notícia / Tendência:</span>
+                <p class="content" id="sec-1-trend">Estudo recente aponta que 73% dos decisores de compras industriais agora preferem jornadas de compra 100% digitais ou híbridas, com forte apelo para demonstrações técnicas em 3D e realidade aumentada.</p>
+              </div>
+              <div class="scannable-item highlighted">
+                <span class="label text-accent">Impacto nos Clientes Mettos:</span>
+                <p class="content font-medium" id="sec-1-impact">Clientes de maquinário pesado precisam urgentemente de páginas de produto com interações mais ricas. Landing pages estáticas estão perdendo conversão para concorrentes que trazem tours interativos.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEÇÃO 2: TRÁFEGO & CONVERSÃO -->
+          <section class="radar-card" id="card-trafego">
+            <div class="card-badge color-traffic">🎯 2. Tráfego & Conversão</div>
+            <div class="card-body">
+              <h4 class="card-main-title" id="sec-2-title">Mudança Crítica nas Campanhas de Performance Max (PMax) do Google</h4>
+              <div class="scannable-item">
+                <span class="label">Atualização de Plataforma:</span>
+                <p class="content" id="sec-2-update">Google Ads removeu silenciosamente a opção de exclusão manual de certas categorias de canais móveis no painel padrão das campanhas de PMax, forçando a veiculação em redes de parceiros menos qualificadas.</p>
+              </div>
+              <div class="scannable-item highlighted-action">
+                <span class="label text-danger">⚠️ Ação Necessária Hoje:</span>
+                <p class="content font-medium" id="sec-2-action">Gestores de tráfego devem rodar o script de exclusão de canais em massa via Google Ads Editor ou aplicar a lista de exclusão de canais no nível da conta para blindar os orçamentos B2B de cliques acidentais em apps de jogos.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEÇÃO 3: DADOS & TECNOLOGIA -->
+          <section class="radar-card" id="card-dados">
+            <div class="card-badge color-tech">⚙️ 3. Dados & Tecnologia</div>
+            <div class="card-body">
+              <h4 class="card-main-title" id="sec-3-title">Rollout do Consent Mode V2 Obrigatório & API de Conversões</h4>
+              <div class="scannable-item">
+                <span class="label">Alerta Tech:</span>
+                <p class="content" id="sec-3-alert">A partir deste mês, o Google invalidará listas de remarketing e lances inteligentes de contas de anúncios que rodam na Europa ou que captam leads de filiais multinacionais que não tenham o Consent Mode V2 implementado no GTM.</p>
+              </div>
+              <div class="scannable-item highlighted-warning">
+                <span class="label text-warning">🛡️ Ação Preventiva (Time de Infra/Dados):</span>
+                <p class="content font-medium" id="sec-3-status">Verificar todos os GTMs dos clientes industriais B2B. Configurar os scripts de cookie banner integrados com a API de Consentimento. Sem isso, as métricas de conversão inteligente ficarão cegas até o final do trimestre.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEÇÃO 4: CALENDÁRIO ESTRATÉGICO -->
+          <section class="radar-card" id="card-calendario">
+            <div class="card-badge color-calendar">📅 4. Calendário Estratégico (Próximos 15-30 dias)</div>
+            <div class="card-body">
+              <h4 class="card-main-title" id="sec-4-title">Dia Nacional do Controle da Poluição Industrial (Datas Sazonais)</h4>
+              <div class="scannable-item">
+                <span class="label">Data Relevante:</span>
+                <p class="content" id="sec-4-date">14 de Agosto / Próximas semanas (Feira de Logística Internacional e Automação).</p>
+              </div>
+              <div class="scannable-item highlighted-success">
+                <span class="label text-success">💡 Oportunidade Operacional:</span>
+                <p class="content font-medium" id="sec-4-opportunity">Excelente gancho para clientes de filtros industriais, descarte de resíduos e eficiência energética. Criar e-mail marketing com tema "Sua planta industrial está em conformidade com as novas regras?" e disparar até a segunda semana do mês.</p>
+              </div>
+              <div class="card-action-footer">
+                <button class="btn btn-xs btn-primary-light" onclick="openCampaignHelper()">
+                  <span>Construir Campanha a partir desta Data</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEÇÃO 5: GIRO DE BENCHMARKING -->
+          <section class="radar-card span-col-2" id="card-benchmarking">
+            <div class="card-badge color-bench">📊 Giro de Benchmarking (Análise da Concorrência Industrial)</div>
+            <div class="card-body benchmarking-container">
+              <div class="bench-column">
+                <h5>Padrões Visuais em Alta</h5>
+                <p id="sec-5-visuals">Anúncios no Meta Ads de grandes players industriais (como Siemens, WEG) focam fortemente em vídeos de 15 segundos do produto em funcionamento real na fábrica, com legendas em alto contraste e foco no ganho de eficiência técnica de maquinários.</p>
+              </div>
+              <div class="bench-column">
+                <h5>Copywriting & Mensagem da Semana</h5>
+                <p id="sec-5-copy">A copy do nicho esta semana migrou de "compre o melhor produto" para "reduza o custo operacional (OPEX) da sua planta em até 30%". Argumentos financeiros e de sustentabilidade estão gerando maior taxa de cliques (CTR) no LinkedIn Ads.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEÇÃO 6: HACK DE IA OU PROMPT DA SEMANA -->
+          <section class="radar-card span-col-2" id="card-prompt">
+            <div class="card-badge color-prompt">💡 Prompt de IA Operacional da Semana</div>
+            <div class="card-body prompt-container">
+              <div class="prompt-meta">
+                <h4 id="sec-6-title">Gerador de Argumentos Técnicos de Venda (LinkedIn B2B)</h4>
+                <p class="subtitle">Use este prompt no ChatGPT/Claude para traduzir fichas técnicas complexas de produtos de clientes industriais em copy atraente para executivos.</p>
+              </div>
+              <div class="prompt-code-box">
+                <pre><code id="sec-6-prompt">Você é um Copywriter B2B experiente focado no nicho industrial.
+Quero que você transforme a seguinte ficha técnica em uma publicação altamente engajadora para o LinkedIn Ads, focada em diretores de operações.
+
+Ficha Técnica do Cliente: [Inserir Ficha Técnica / Benefícios]
+
+Estrutura da Copy:
+1. Gancho de impacto financeiro (Foco em OPEX / Redução de paradas).
+2. O problema oculto que a maioria dos diretores enfrenta na linha de produção.
+3. Como nossa solução resolve isso (em 3 bullet points visuais e técnicos).
+4. CTA convidando para falar com um engenheiro de aplicação.
+Tom: Técnico, profissional, focado em ROI. Sem jargões exagerados de marketing.</code></pre>
+                <button class="btn btn-xs btn-outline copy-prompt-btn" onclick="copyPromptText()">
+                  <span>Copiar Prompt</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <!-- TAB 2: PROMPT SANDBOX -->
+      <div id="tab-sandbox" class="tab-content">
+        <div class="sandbox-container">
+          <div class="sandbox-sidebar">
+            <h3>Modelos Rápidos</h3>
+            <p>Selecione um prompt operacional para customizar e rodar.</p>
+            <div class="prompt-templates-list">
+              <button class="prompt-temp-btn active" onclick="loadSandboxTemplate('linkedin')">LinkedIn Copy Industrial</button>
+              <button class="prompt-temp-btn" onclick="loadSandboxTemplate('landing')">Landing Page de Maquinário</button>
+              <button class="prompt-temp-btn" onclick="loadSandboxTemplate('email')">E-mail de Nutrição B2B</button>
+            </div>
+          </div>
+          <div class="sandbox-workspace">
+            <div class="form-group">
+              <label for="sandbox-prompt-input">Prompt Base:</label>
+              <textarea id="sandbox-prompt-input" rows="8"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="sandbox-product-input">Produto / Diferencial Técnico:</label>
+                <input type="text" id="sandbox-product-input" placeholder="Ex: Motores Elétricos WEG W22 com eficiência IE4">
+              </div>
+              <div class="form-group">
+                <label for="sandbox-audience-input">Público-Alvo:</label>
+                <input type="text" id="sandbox-audience-input" placeholder="Ex: Diretores de Manutenção de Indústrias Químicas">
+              </div>
+            </div>
+            <div class="sandbox-actions">
+              <button class="btn btn-primary" onclick="runSandboxSimulation()">
+                <span>Simular Resposta da IA</span>
+              </button>
+            </div>
+            <div class="sandbox-result-box" id="sandbox-result-box" style="display: none;">
+              <div class="result-header">
+                <span>✨ Resposta Mockada da IA (Mettos AI):</span>
+                <button class="btn btn-xs btn-outline" onclick="copySandboxResult()">Copiar Resultado</button>
+              </div>
+              <div class="result-content" id="sandbox-result-text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAL: GERADOR DE NEWSLETTER IA -->
+  <div class="modal-overlay" id="generator-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Simular Varredura Semanal de IA</h3>
+        <button class="close-btn" onclick="closeGeneratorModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>A IA da Mettos irá vasculhar portais industriais (Valor Econômico, CNI, Portais de Automação), changelogs de tráfego (Google, Meta) e as bibliotecas de anúncios de concorrentes.</p>
+        <div class="form-group">
+          <label for="generator-focus">Foco Principal da Semana (Opcional):</label>
+          <input type="text" id="generator-focus" placeholder="Ex: Queda no custo de leads, Google Ads Consent Mode, Novas feiras...">
+        </div>
+        <div class="form-group">
+          <label for="generator-tone">Tom de Comunicação:</label>
+          <select id="generator-tone">
+            <option value="operacional">100% Operacional & Direto (Recomendado)</option>
+            <option value="estrategico">Estratégico & Macro</option>
+            <option value="rapido">Apenas Alertas Críticos</option>
+          </select>
+        </div>
+        <div class="simulation-progress" id="sim-progress" style="display: none;">
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="sim-progress-bar"></div>
+          </div>
+          <p class="progress-text" id="sim-progress-text">Varrendo portais de tráfego...</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeGeneratorModal()">Cancelar</button>
+        <button class="btn btn-primary" id="btn-start-simulation" onclick="startNewsletterGeneration()">
+          <span>Iniciar Varredura IA</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CRIADOR DE CAMPANHAS RÁPIDAS (CALENDÁRIO) -->
+  <div class="modal-overlay" id="campaign-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Planejador de Campanha Sazonal</h3>
+        <button class="close-btn" onclick="closeCampaignHelper()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="campaign-preview-box">
+          <span class="preview-badge">Campanha para a Data</span>
+          <h4 id="camp-data-title">Dia Nacional do Controle da Poluição Industrial</h4>
+        </div>
+        <div class="form-group">
+          <label for="camp-client">Selecione o Cliente do Portfólio Mettos:</label>
+          <select id="camp-client">
+            <option value="industria-x">EcoFiltras - Filtros e Tratamento Industrial</option>
+            <option value="industria-y">TermoSteel - Caldeiras & Eficiência de Vapor</option>
+            <option value="industria-z">TechAuto - Automação Industrial B2B</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="camp-channel">Canal de Aquisição Sugerido:</label>
+          <select id="camp-channel" onchange="updateCampDetails()">
+            <option value="email">E-mail Marketing de Conteúdo B2B (Nutrição/Base)</option>
+            <option value="linkedin">LinkedIn Ads - Campanha de Geração de Leads (Ebook/Whitepaper)</option>
+            <option value="google">Google Ads - Rede de Pesquisa (Foco Comercial)</option>
+          </select>
+        </div>
+        <div class="camp-plan-result">
+          <h5>Estratégia Gerada para o Time:</h5>
+          <div class="camp-card-detail">
+            <p><strong>Chamada/Ganho:</strong> <span id="camp-headline">Sua planta industrial está em conformidade com as novas regras?</span></p>
+            <p><strong>CTA Principal:</strong> <span id="camp-cta">Falar com Especialista Mettos & Diagnóstico Gratuito</span></p>
+            <p><strong>Configuração de CRM:</strong> <span id="camp-crm">Disparar régua de e-mail no RD Station para bases frias com tag "manutencao-planta"</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeCampaignHelper()">Voltar</button>
+        <button class="btn btn-primary" onclick="copyCampaignStrategy()">
+          <span>Copiar Estratégia de Campanha</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">Ação concluída com sucesso!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
